@@ -6,9 +6,13 @@
 
 $array = [];
 
-for ($i = 0; $i < 15; $i++) {
-   array_push($array, rand(1, 100));
+while (sizeof($array) < 15) {
+   $number = rand(1, 100);
+   if (!in_array($number, $array)) {
+      array_push($array, $number);
+   }
 }
 
 var_dump($array);
+
 ?>
