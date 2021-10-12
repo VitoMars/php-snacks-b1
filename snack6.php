@@ -44,9 +44,6 @@ include __DIR__ . "/database.php"
             echo "</div>";
          }
       }
-      // if($key == "pm"){
-
-      // }
    }
 
    ?>
