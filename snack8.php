@@ -4,6 +4,8 @@
 // Partendo da questo array: https://www.codepile.net/pile/Po60bjgQ
 // Ad ogni refresh della pagina visualizzare una pubblicità a schermo, tenendo conto che possono essere sorteggiate solo quelle is_active true
 
+$avaibleAds = [];
+
 $ads = [
    [
       'image_path' => 'https://conversionsciences.com/wp-content/uploads/2019/04/example-of-emotional-logical-appeal-on-persuasive-copy.jpg',
@@ -33,6 +35,14 @@ $ads = [
 
 ];
 
+foreach ($ads as $ad) {
+   if ($ad["is_active"] == true) {
+      $avaibleAds[] = $ad;
+   }
+}
+
+$currentAds = $avaibleAds[rand(0, count($avaibleAds) - 1)];
+
 ?>
 
 <!DOCTYPE html>
@@ -53,13 +63,15 @@ $ads = [
 </style>
 
 <body>
-   <?php
-   foreach ($ads as $ad) {
-      if ($ad["is_active"] == true) {
-         echo "<img src='$ad[image_path]'>";
-      }
-   }
-   ?>
+
+   <!-- foreach ($ads as $ad) {
+       if ($ad["is_active"] == true) {
+          echo "<img src='$ad[image_path]'>";
+       }
+   } -->
+
+   <img src="<?php echo $currentAds["image_path"] ?>" alt="">
+
 </body>
 
 </html>
